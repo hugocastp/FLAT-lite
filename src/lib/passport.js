@@ -2,9 +2,6 @@ const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
 const pool = require('../databaseInterviews');
 const helpers = require('./helpers');
-const express = require('express');
-const router = express.Router();
-const  { sendEmail } = require('./sendEmail');
 
 passport.use('local.signin', new LocalStrategy({
   usernameField: 'username',
@@ -56,7 +53,6 @@ passport.use('local.signup', new LocalStrategy({
   // Saving in the Database
   const result = await pool.query('INSERT INTO users SET ? ', newUser);
   newUser.id = result.insertId;
-  router.post('/email', sendEmail);
   return done(null, newUser);
 }));
 
