@@ -1,0 +1,77 @@
+<div>
+ 
+  <div class="container d-block">
+      <div class="row mt-4">
+      <div class="col">
+        <div class="card">
+          <h3 class="text-center p-4">Texto <span id='IdItrviewHolder'>{{idInterview}}</span></h3>
+        </div>
+        <div class="overflow-auto" id="contTextArea">
+          <div class="sectionInterview">
+            <div id="text_html">
+              <div id="root"></div>
+              {{#each interview as |portion|}}
+              <div class="yellow{{portion.person}}" name="{{portion.person}}" id="line{{portion.line}}">{{portion.person}}: {{portion.content}}</div>
+              {{/each}}
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col col-lg-4">
+        <div class="row">
+          {{> addTagsMenu}}
+        </div>
+        <div class="row">
+          <div class="card ">
+            <div class="card-body ">
+              <form action="/addtag" method="POST" style="width: 20em">
+                <div class="form-group">
+                  <div class="form-group">
+                    <label for="tagscollection">Etiquetado actual</label>
+                    <select multiple class="form-control" name="tagscollection" id="tagscollection">
+                      {{#each tags as |tag|}}
+                      <option value="{{tag.startpos}}" style="color: {{tag.color}};">{{tag.title}} {{tag.sentence}}</option>
+                      {{/each}}
+                    </select>
+                  </div>
+                </div>
+              </form>
+ 
+                <script>
+                  function IdSiguiente(){
+                    let id = parseInt(idInterview,10);
+                    id = id+1;
+                    window.location="/interviews/watch/"+id;
+                  }
+
+                  function IdAnterior(){
+                    let id = parseInt(idInterview,10);
+                    id = id-1;
+                    window.location="/interviews/watch/"+id;
+                  }
+
+                </script>
+      <button type="button" class="btn hiddenitem"  onclick="IdAnterior()">
+    <svg xmlns="http://www.w3.org/2000/svg"  style=" color: #2A0055;"  width="35" height="35" fill="currentColor" class="bi bi-chevron-left" viewBox="0 0 16 16">
+    <path fill-rule="evenodd" d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"/>
+    </svg>
+    <span class="visually-hidden"> </span>
+    </button>
+   
+    
+      <button type="button" class="btn hiddenitem"  onclick="IdSiguiente()">
+    <svg xmlns="http://www.w3.org/2000/svg" style=" color: #2A0055;" width="35" height="35" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
+  <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
+</svg>
+    <span class="visually-hidden"> </span>
+    </button>
+  
+            </div>
+          </div>
+        </div>        
+      </div>
+    </div>
+  </div>
+  <script src="/js/interviews/watch.js">
+  </script>
+</div>
