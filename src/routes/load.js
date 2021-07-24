@@ -5,8 +5,6 @@ const formidable = require('formidable')
 const fs = require('fs')
 const {PythonShell} = require('python-shell');
 const mv = require('mv');
-const { isLoggedIn, isNotLoggedIn } = require('../lib/auth');
-
 app = express();
 const bodyParser = require('body-parser');
 app.use(bodyParser.json());
