@@ -1,3 +1,13 @@
+process.on('unhandledRejection', (error, promise) => {
+  console.log(' Oh Lord! We forgot to handle a promise rejection here: ', promise);
+  console.log(' The error was: ', error );
+});
+
+process.on('uncaughtException', (error)  => {
+  console.log('Oh my god, something terrible happened: ',  error);
+  process.exit(1); // exit application 
+
+})
 const express = require('express');
 const morgan = require('morgan');
 const path = require('path');
