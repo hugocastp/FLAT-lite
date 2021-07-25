@@ -18,7 +18,8 @@
               <input type="text" name="username" placeholder="Usuario" class="form-control" autofocus>
             </div>
             <div class="form-group">
-              <input type="password" name="password" placeholder="Contraseña" class="form-control">
+              <input type="password" id="password" name="password" placeholder="Contraseña" class="form-control">
+              <input type="checkbox" onclick="passVi()"> Mostrar Contraseña
             </div>
             <button class="btn btn-primary btn-block">
               Iniciar sesión
@@ -30,3 +31,13 @@
     </div>
   </div>
 </div>
+<script>
+function passVi() {
+  var x = document.getElementById("password");
+  if (x.type === "password") {
+    x.type = "text";
+  } else {
+    x.type = "password";
+  }
+}
+</script>
