@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const passport = require('passport');
+const { body, validationResult } = require('express-validator');
 const { isNotLoggedIn } = require('../lib/auth');
 
 // SIGNUP
@@ -21,15 +22,16 @@ router.get('/signin',isNotLoggedIn, (req, res) => {
 });
 
 router.post('/signin' ,isNotLoggedIn, (req, res, next) => {
-  req.check('username') 
+  body('username') 
   .notEmpty()
   .withMessage('Ingresa un correo electronico');
 
-  req.check('password')
+  body('password')
       .notEmpty()
       .withMessage('Ingresa una contraseña');
-      
-  const errors = req.validationErrors();
+  
+  const errors = validationResult(req);
+
   if (errors.length > 0) {
     req.flash('message', errors[0].msg);
     res.redirect('/signin');
