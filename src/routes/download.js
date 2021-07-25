@@ -2,9 +2,7 @@ const express = require('express');
 const router = express.Router();
 const pool = require("../databaseInterviews");
 const formidable = require('formidable')
-const fs = require('fs')
 const { PythonShell } = require('python-shell');
-const { isLoggedIn, isNotLoggedIn } = require('../lib/auth');
 
 router.get('/download', async (req, resp) => {
     const documents = await pool.query('SELECT * FROM  documents WHERE id_user = ?' ,[req.user.id]);
@@ -48,9 +46,6 @@ router.post('/download', async (req, resp) => {
             })
         }
 
-
-        //resp.end();
-        //esp.redirect('/download/download')
     });
 });
 

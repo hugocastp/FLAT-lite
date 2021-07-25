@@ -1,6 +1,5 @@
 const express =  require('express');
 const router =  express.Router();
-const { isLoggedIn, isNotLoggedIn } = require('../lib/auth');
 const pool = require("../databaseInterviews");
 
 router.get('/add', (req,resp)=>{
@@ -27,8 +26,7 @@ router.get('/', async (req,res)=>{
 });
 
 router.get('/delete/:id/', async (req,resp)=>{
-    /* console.log(req.params.id);
-    resp.send('Deleted'); */
+
     const {id} = req.params;
     await pool.query('DELETE FROM cat_tags WHERE id_cat_tag =?',[id]);
     req.flash('success','Categoría eliminada satisfactoriamente');

@@ -1,8 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const pool = require("../databaseInterviews");
 const formidable = require('formidable')
-const fs = require('fs')
 const {PythonShell} = require('python-shell');
 const mv = require('mv');
 app = express();

@@ -18,29 +18,29 @@
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.19.0",
     "connect-flash": "^0.1.1",
-    "ejs": "^3.1.5",
+    "ejs": "^3.1.6",
     "express": "^4.17.1",
     "express-fileupload": "^1.2.1",
     "express-handlebars": "^5.3.2",
-    "express-mysql-session": "^2.1.4",
+    "express-mysql-session": "^2.1.6",
     "express-session": "^1.17.1",
-    "express-validator": "^5.1.2",
+    "express-validator": "^6.12.1",
     "formidable": "^1.2.2",
     "jade": "^1.11.0",
-    "jquery": "^3.5.1",
+    "jquery": "^3.6.0",
     "morgan": "^1.10.0",
     "multer": "^1.4.2",
     "mv": "^2.1.1",
     "mysql": "^2.18.1",
     "passport": "^0.4.1",
     "passport-local": "^1.0.0",
-    "python-shell": "^2.0.2",
-    "simplejson": "0.0.2",
+    "python-shell": "^3.0.0",
+    "simplejson": "^0.0.2",
     "timeago.js": "^4.0.2",
     "xmlhttprequest": "^1.8.0"
   },
   "devDependencies": {
-    "nodemon": "^2.0.7"
+    "nodemon": "^2.0.12"
   },
   "nodemonConfig": {
     "ignore": [

@@ -8,12 +8,11 @@ services:
     container_name: etiquetador-login-lite
     ports:
       - 80:4000
-      #80:4000
     command: npm start
     depends_on:
       - db
   db:
-    image: mariadb:10.4.18
+    image: mariadb:latest
     restart: always
     volumes:
       - db_volume:/var/lib/mysql

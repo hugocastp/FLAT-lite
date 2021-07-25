@@ -1,15 +1,9 @@
-process.on('unhandledRejection', (error, promise) => {
-  console.log(' We forgot to handle a promise rejection here: ', promise);
-  console.log(' The error was: ', error );
-});
-
 const express = require('express');
 const morgan = require('morgan');
 const path = require('path');
 const exphbs = require('express-handlebars');
 const session = require('express-session');
 const flash = require('connect-flash');
-const validator = require('express-validator');
 const passport = require('passport');
 const MySQLStore = require('express-mysql-session')(session);
 const { database } = require('./keys');
@@ -45,8 +39,9 @@ app.use(session({
 app.use(flash());
 app.use(passport.initialize());
 app.use(passport.session());
-app.use(validator());
 app.use(require('connect-flash')());
+
+
 
 //Global variables
 app.use((req, res, next) => {

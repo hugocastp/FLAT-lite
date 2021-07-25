@@ -1,8 +1,7 @@
 const express = require('express');
 const router = express.Router();
-const { check, validationResult } = require('express-validator');
 const passport = require('passport');
-const { isLoggedIn, isNotLoggedIn } = require('../lib/auth');
+const { isNotLoggedIn } = require('../lib/auth');
 
 // SIGNUP
 router.get('/signup', isNotLoggedIn, (req, res) => {
