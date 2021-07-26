@@ -7,9 +7,9 @@
     "lib": "lib"
   },
   "scripts": {
+    "pm2": "pm2 start processes.json --no-daemon",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon src/index",
-    "start.dev": "nodemon"
+    "start": "node ./src/index.js"
   },
   "keywords": [],
   "author": "",
