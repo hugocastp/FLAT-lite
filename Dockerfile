@@ -18,5 +18,4 @@ RUN pip3 install pandas python-shell mysql-connector-python openpyxl nested-look
 COPY . .
 
 EXPOSE 4000
-
-CMD [ "npm", "run", "pm2" ]
+CMD [ "npm", "run", "start.dev" ]
