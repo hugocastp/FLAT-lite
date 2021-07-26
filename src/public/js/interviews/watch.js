@@ -326,7 +326,7 @@ function save() {
       }
   }
   tagged_text = tagged_text.replace("I: ","");
-  AjaxRequest("POST", '/interviews/addTag', { newTags: newTags, tagged_text: tagged_text}, (_) => window.location.href = 'http://localhost/interviews/watch/' + idInterview);
+  AjaxRequest("POST", '/interviews/addTag', { newTags: newTags, tagged_text: tagged_text}, (_) => window.location.href = 'http://192.168.0.87/interviews/watch/' + idInterview);
   refresh = 1;
 }
 
